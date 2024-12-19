@@ -2,26 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+/* Global font-family apply */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #0eb582;
+    }
   }
 }
+
+* {
+  @apply box-border outline-none border-none transition-all duration-200 ease-linear;
+}
+
+@layer base {
+  @media (max-width: 991px) {
+    html {
+      font-size: 55%;
+    }
+  }
+}
+
+@layer base {
+  @media (max-width: 450px) {
+    html {
+      font-size: 50%;
+    }
+  }
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  @apply bg-[#0eb582] ; /* Active bullet color */
+}
+  
